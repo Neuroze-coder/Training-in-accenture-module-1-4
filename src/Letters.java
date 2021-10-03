@@ -21,7 +21,7 @@ public class Letters {
 
         Pattern vowelLettersPattern = Pattern.compile("[ауоыиэяюеёАУОЫИЭЯЮЕЁ]");
         Pattern consonantLettersPattern = Pattern.compile("[бвгджзйклмнпрстфхцчшщьъБВГДЖЗЁКЛМНПРСТФХЦЧШЩЬЪ]");
-        
+
         findVowelLetters(word, vowelLettersPattern);
         findConsonantLetters(word, consonantLettersPattern);
         System.out.println(" ");
@@ -30,24 +30,24 @@ public class Letters {
 
     private static void findConsonantLetters(String word, Pattern consonantLettersPattern) {
         Matcher matcherConsonant = consonantLettersPattern.matcher(word);
-        int count1 = 0;
-        int i1 = 0;
-        while (matcherConsonant.find(i1)) {
-            count1++;
-            i1 = matcherConsonant.start() + 1;
+        int countForConsonant = 0;
+        int iForConsonant = 0;
+        while (matcherConsonant.find(iForConsonant)) {
+            countForConsonant++;
+            iForConsonant = matcherConsonant.start() + 1;
         }
-        System.out.print("Найдено согласных букв: " + count1);
+        System.out.print("Найдено согласных букв: " + countForConsonant);
     }
 
     private static void findVowelLetters(String word, Pattern vowelLettersPattern) {
         Matcher matcherVowel = vowelLettersPattern.matcher(word);
-        int count = 0;
-        int i = 0;
-        while (matcherVowel.find(i)) {
-            count++;
-            i = matcherVowel.start() + 1;
+        int countForVowel = 0;
+        int iForVowel = 0;
+        while (matcherVowel.find(iForVowel)) {
+            countForVowel++;
+            iForVowel = matcherVowel.start() + 1;
         }
-        System.out.println("Найдено гласных букв: " + count);
+        System.out.println("Найдено гласных букв: " + countForVowel);
     }
 
     private static void doubleVowelLetters (String word, Pattern vowelLettersPattern) {
@@ -55,7 +55,7 @@ public class Letters {
         while (matcherDoubleVowel.find()) {
             StringBuilder sb = new StringBuilder(matcherDoubleVowel.group());
             sb.append(sb);
-            System.out.print(sb);
+            System.out.print(sb.toString().toLowerCase(Locale.ROOT));
         }
     }
 
