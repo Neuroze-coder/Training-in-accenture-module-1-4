@@ -1,3 +1,4 @@
+import java.util.Locale;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -16,14 +17,48 @@ public class Letters {
         Scanner scan = new Scanner(System.in);
         System.out.println("Enter something");
         String word = scan.nextLine();
-        Pattern vowelLetters = Pattern.compile("[ауоыиэяюеё]");
-        Pattern consonantLetters = Pattern.compile("[бвгджзйклмнпрстфхцчшщьъ]");
+        System.out.println("You entered: " + word.toUpperCase(Locale.ROOT));
 
+        Pattern vowelLettersPattern = Pattern.compile("[ауоыиэяюеёАУОЫИЭЯЮЕЁ]");
+        Pattern consonantLettersPattern = Pattern.compile("[бвгджзйклмнпрстфхцчшщьъБВГДЖЗЁКЛМНПРСТФХЦЧШЩЬЪ]");
+        
+        findVowelLetters(word, vowelLettersPattern);
+        findConsonantLetters(word, consonantLettersPattern);
+        System.out.println(" ");
+        doubleVowelLetters(word, vowelLettersPattern);
     }
 
-    public static void chekReg(Pattern pattern, String word) {
-        Matcher matcher = pattern.matcher(word);
-        System.out.println(matcher.matches());
+    private static void findConsonantLetters(String word, Pattern consonantLettersPattern) {
+        Matcher matcherConsonant = consonantLettersPattern.matcher(word);
+        int count1 = 0;
+        int i1 = 0;
+        while (matcherConsonant.find(i1)) {
+            count1++;
+            i1 = matcherConsonant.start() + 1;
+        }
+        System.out.print("Найдено согласных букв: " + count1);
     }
+
+    private static void findVowelLetters(String word, Pattern vowelLettersPattern) {
+        Matcher matcherVowel = vowelLettersPattern.matcher(word);
+        int count = 0;
+        int i = 0;
+        while (matcherVowel.find(i)) {
+            count++;
+            i = matcherVowel.start() + 1;
+        }
+        System.out.println("Найдено гласных букв: " + count);
+    }
+
+    private static void doubleVowelLetters (String word, Pattern vowelLettersPattern) {
+        Matcher matcherDoubleVowel = vowelLettersPattern.matcher(word);
+        while (matcherDoubleVowel.find()) {
+            StringBuilder sb = new StringBuilder(matcherDoubleVowel.group());
+            sb.append(sb);
+            System.out.print(sb);
+        }
+    }
+
+
 
 }
