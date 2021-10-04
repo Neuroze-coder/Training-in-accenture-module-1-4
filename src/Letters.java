@@ -1,5 +1,6 @@
+
+
 import java.util.Locale;
-import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -13,22 +14,27 @@ import java.util.regex.Pattern;
  */
 
 public class Letters {
+
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Enter something");
-        String word = scan.nextLine();
-        System.out.println("You entered: " + word.toUpperCase(Locale.ROOT));
+//        Scanner scan = new Scanner(System.in);
+//        System.out.println("Enter something");
+//        String word = scan.nextLine();
+            String word = "Привет как делаа";
 
         Pattern vowelLettersPattern = Pattern.compile("[ауоыиэяюеёАУОЫИЭЯЮЕЁ]");
         Pattern consonantLettersPattern = Pattern.compile("[бвгджзйклмнпрстфхцчшщьъБВГДЖЗЁКЛМНПРСТФХЦЧШЩЬЪ]");
 
-        findVowelLetters(word, vowelLettersPattern);
-        findConsonantLetters(word, consonantLettersPattern);
-        System.out.println(" ");
+        System.out.println("Consonant letters found: " + findConsonantLetters(word,consonantLettersPattern));
+        System.out.println("Vowel letters found: " + findVowelLetters(word, vowelLettersPattern));
+        System.out.print("Double vowel letters : ");
         doubleVowelLetters(word, vowelLettersPattern);
+        System.out.println(" ");
+        System.out.print("The entered text is in uppercase: " + word.toUpperCase(Locale.ROOT));
+
+
     }
 
-    private static void findConsonantLetters(String word, Pattern consonantLettersPattern) {
+    private static int findConsonantLetters(String word, Pattern consonantLettersPattern) {
         Matcher matcherConsonant = consonantLettersPattern.matcher(word);
         int countForConsonant = 0;
         int iForConsonant = 0;
@@ -36,10 +42,10 @@ public class Letters {
             countForConsonant++;
             iForConsonant = matcherConsonant.start() + 1;
         }
-        System.out.print("Найдено согласных букв: " + countForConsonant);
+        return countForConsonant;
     }
 
-    private static void findVowelLetters(String word, Pattern vowelLettersPattern) {
+    private static int findVowelLetters(String word, Pattern vowelLettersPattern) {
         Matcher matcherVowel = vowelLettersPattern.matcher(word);
         int countForVowel = 0;
         int iForVowel = 0;
@@ -47,8 +53,10 @@ public class Letters {
             countForVowel++;
             iForVowel = matcherVowel.start() + 1;
         }
-        System.out.println("Найдено гласных букв: " + countForVowel);
+        return countForVowel;
     }
+
+
 
     private static void doubleVowelLetters (String word, Pattern vowelLettersPattern) {
         Matcher matcherDoubleVowel = vowelLettersPattern.matcher(word);
@@ -58,6 +66,9 @@ public class Letters {
             System.out.print(sb.toString().toLowerCase(Locale.ROOT));
         }
     }
+
+
+
 
 
 
