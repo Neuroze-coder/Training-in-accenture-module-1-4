@@ -1,6 +1,7 @@
 
 
 import java.util.Locale;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,10 +17,9 @@ import java.util.regex.Pattern;
 public class Letters {
 
     public static void main(String[] args) {
-//        Scanner scan = new Scanner(System.in);
-//        System.out.println("Enter something");
-//        String word = scan.nextLine();
-            String word = "Привет как делаа";
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter something");
+        String word = scan.nextLine();
 
         Pattern vowelLettersPattern = Pattern.compile("[ауоыиэяюеёАУОЫИЭЯЮЕЁ]");
         Pattern consonantLettersPattern = Pattern.compile("[бвгджзйклмнпрстфхцчшщьъБВГДЖЗЁКЛМНПРСТФХЦЧШЩЬЪ]");
@@ -30,7 +30,6 @@ public class Letters {
         doubleVowelLetters(word, vowelLettersPattern);
         System.out.println(" ");
         System.out.print("The entered text is in uppercase: " + word.toUpperCase(Locale.ROOT));
-
 
     }
 
@@ -56,8 +55,6 @@ public class Letters {
         return countForVowel;
     }
 
-
-
     private static void doubleVowelLetters (String word, Pattern vowelLettersPattern) {
         Matcher matcherDoubleVowel = vowelLettersPattern.matcher(word);
         while (matcherDoubleVowel.find()) {
@@ -66,10 +63,4 @@ public class Letters {
             System.out.print(sb.toString().toLowerCase(Locale.ROOT));
         }
     }
-
-
-
-
-
-
 }
