@@ -10,6 +10,24 @@
 
 public class StringBuilder2 {
     public static void main(String[] args) {
-        //TODO
+        String string = "Я помню чудное мгновенье:";
+
+        System.out.println(addTo(string, new String[]{" Передо ", "мной ", "явилась ", "ты!"}));
+        System.out.println(replace(string, "не помню", 2, 7));
+    }
+
+    public static StringBuilder addTo (String string, String[] strings) {
+        StringBuilder refrag = new StringBuilder();
+        refrag.append(string);
+        for (int i = 0; i < strings.length; i++) {
+            StringBuilder sb = refrag.append(strings[i]);
+        }
+        return refrag;
+    }
+
+    public static StringBuilder replace (String string, String str, int start, int end) {
+        StringBuilder refrag = new StringBuilder(string);
+        refrag.replace(start,end,str);
+        return refrag;
     }
 }

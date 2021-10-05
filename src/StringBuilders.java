@@ -27,7 +27,7 @@ public class StringBuilders {
         lineBuilder.append("ве");
         lineBuilder.append("нь");
         lineBuilder.append("е:");
-        lineBuilder.append(" Пр");
+        lineBuilder.append(" Пер");
         lineBuilder.append("е");
         lineBuilder.append("до");
         lineBuilder.append(" мной");
