@@ -1,4 +1,3 @@
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -18,16 +17,16 @@ public class WeekEnds {
 
     public static void main(String[] args) {
 
-        List <LocalDateTime> dateTimeList = new ArrayList<>();
-        dateTimeList.add(LocalDateTime.of(2021,10,1,21,50));
-        dateTimeList.add(LocalDateTime.of(2021,10,1,22,1));
-        dateTimeList.add(LocalDateTime.of(2021,10,2,14,10));
-        dateTimeList.add(LocalDateTime.of(2021,10,3,22,59));
-        dateTimeList.add(LocalDateTime.of(2021,10,3,23,12));
-        dateTimeList.add(LocalDateTime.of(2021,10,4,10,15));
-        dateTimeList.add(LocalDateTime.of(2021,10,5,12,15));
-        dateTimeList.add(LocalDateTime.of(2021,10,6,12,15));
-        dateTimeList.add(LocalDateTime.of(2021,10,9,12,15));
+        List<LocalDateTime> dateTimeList = new ArrayList<>();
+        dateTimeList.add(LocalDateTime.of(2021, 10, 1, 21, 50));
+        dateTimeList.add(LocalDateTime.of(2021, 10, 1, 22, 1));
+        dateTimeList.add(LocalDateTime.of(2021, 10, 2, 14, 10));
+        dateTimeList.add(LocalDateTime.of(2021, 10, 3, 22, 59));
+        dateTimeList.add(LocalDateTime.of(2021, 10, 3, 23, 12));
+        dateTimeList.add(LocalDateTime.of(2021, 10, 4, 10, 15));
+        dateTimeList.add(LocalDateTime.of(2021, 10, 5, 12, 15));
+        dateTimeList.add(LocalDateTime.of(2021, 10, 6, 12, 15));
+        dateTimeList.add(LocalDateTime.of(2021, 10, 9, 12, 15));
 
         for (LocalDateTime dateTime : dateTimeList) {
             System.out.println(dateTime + " выходной? " + isWeekendDay(dateTime));

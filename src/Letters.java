@@ -1,5 +1,3 @@
-
-
 import java.util.Locale;
 import java.util.Scanner;
 import java.util.regex.Matcher;
@@ -24,7 +22,7 @@ public class Letters {
         Pattern vowelLettersPattern = Pattern.compile("[ауоыиэяюеёАУОЫИЭЯЮЕЁ]");
         Pattern consonantLettersPattern = Pattern.compile("[бвгджзйклмнпрстфхцчшщьъБВГДЖЗЁКЛМНПРСТФХЦЧШЩЬЪ]");
 
-        System.out.println("Consonant letters found: " + findConsonantLetters(word,consonantLettersPattern));
+        System.out.println("Consonant letters found: " + findConsonantLetters(word, consonantLettersPattern));
         System.out.println("Vowel letters found: " + findVowelLetters(word, vowelLettersPattern));
         System.out.print("Double vowel letters : ");
         doubleVowelLetters(word, vowelLettersPattern);
@@ -55,7 +53,7 @@ public class Letters {
         return countForVowel;
     }
 
-    private static void doubleVowelLetters (String word, Pattern vowelLettersPattern) {
+    private static void doubleVowelLetters(String word, Pattern vowelLettersPattern) {
         Matcher matcherDoubleVowel = vowelLettersPattern.matcher(word);
         while (matcherDoubleVowel.find()) {
             StringBuilder sb = new StringBuilder(matcherDoubleVowel.group());

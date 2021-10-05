@@ -9,10 +9,10 @@ import java.util.Scanner;
 public class RepeatLines {
 
     public static void main(String[] args) {
+
         String[] strings = new String[7];
-
-
         Scanner scan = new Scanner(System.in);
+
         for (int i = 0; i < 7; i++) {
             strings[i] = scan.nextLine();
         }
@@ -28,7 +28,6 @@ public class RepeatLines {
                 }
             }
         }
-
         for (int i = 0; i < strings.length; i++) {
             System.out.print(strings[i] + ", ");
         }

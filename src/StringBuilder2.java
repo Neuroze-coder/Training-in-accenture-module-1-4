@@ -16,7 +16,7 @@ public class StringBuilder2 {
         System.out.println(replace(string, "не помню", 2, 7));
     }
 
-    public static StringBuilder addTo (String string, String[] strings) {
+    public static StringBuilder addTo(String string, String[] strings) {
         StringBuilder refrag = new StringBuilder();
         refrag.append(string);
         for (int i = 0; i < strings.length; i++) {
@@ -25,9 +25,9 @@ public class StringBuilder2 {
         return refrag;
     }
 
-    public static StringBuilder replace (String string, String str, int start, int end) {
+    public static StringBuilder replace(String string, String str, int start, int end) {
         StringBuilder refrag = new StringBuilder(string);
-        refrag.replace(start,end,str);
+        refrag.replace(start, end, str);
         return refrag;
     }
 }
